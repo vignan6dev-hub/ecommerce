@@ -1,1 +1,72 @@
-<p>register works!</p>
+<div class="row register">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header head">
+        <h4 class="text-center title">register!</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="register" (ngSubmit)="submit()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              placeholder="Name"
+            />
+            <div
+              *ngIf="register.get('name')?.touched && register.get('name')?.invalid"
+            >
+              <p
+                class="text-danger"
+                *ngIf="register.get('name')?.errors?.['required']"
+              >
+                Name is required
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              placeholder="Email"
+            />
+            <div
+              *ngIf="register.get('email')?.touched && register.get('email')?.invalid"
+            >
+              <p
+                class="text-danger"
+                *ngIf="register.get('email')?.errors?.['required']"
+              >
+                Email is required
+              </p>
+
+              <p
+                class="text-danger"
+                *ngIf="register.get('email')?.errors?.['email']"
+              >
+                Invalid Email Format
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-primary w-100">register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
