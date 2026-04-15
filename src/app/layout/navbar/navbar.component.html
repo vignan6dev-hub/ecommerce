@@ -1,9 +1,9 @@
 <nav class="navbar bg-body-tertiary mb-20">
   <div class="container-fluid">
     <a class="navbar-brand text-warning">E-Commerce</a>
-    <p d-flex class="text-danger bi bi-cart">
+    <p d-flex class="text-danger bi bi-cart" [routerLink]="['/cart']">
       <sup>
-        <span class="badge text-bg-primary">11</span>
+        <span class="badge text-bg-primary">{{count}}</span>
       </sup>
     </p>
   </div>

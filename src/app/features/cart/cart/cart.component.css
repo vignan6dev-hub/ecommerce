@@ -1,0 +1,12 @@
+.crt img{
+width: 150px;
+height: 150px;
+}
+
+.cartmain{margin-top: 30px;}
+
+.crt{display: flex;flex-direction: row;justify-content: center;}
+
+.crt p{display: flex;flex-direction: column;align-items: center;justify-content: center;}
+
+.price{display: flex;flex-direction:column;align-items: center;justify-content: center;height: 100vh;width:100%;}

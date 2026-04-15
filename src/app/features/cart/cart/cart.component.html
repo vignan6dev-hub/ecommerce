@@ -1,0 +1,26 @@
+<div class="container ">
+    <div *ngFor="let i of cartItems">
+        <div class="card mt-10">
+            <!-- <div class="col-md-3"> -->
+            <div class="row">
+                <div class="card-body crt">
+                        <div class="col-md-3">
+                            <img src="{{i.image}}" />
+                        </div>
+                        <div class="col-md-3">
+                            <p class="text-danger">Title</p>
+                            <p class="pric">{{i.title}}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="text-danger">Price</p>
+                            <p class="pric">{{i.price}}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-warning">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- </div> -->
