@@ -4,6 +4,7 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { ProductsListComponent } from './features/products/products-list/products-list.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { CartComponent } from './features/cart/cart/cart.component';
 
 // export const routes: Routes = [
 //    {path:"",redirectTo:"register",pathMatch:"full"},
@@ -19,7 +20,8 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'register', pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'cart',component:CartComponent}
     ]
   },
   {

@@ -3,7 +3,7 @@
     <div class="produc">
       <img src="{{ p.image }}" />
       <p class="text-center pt-5">&#8377; {{ p.price }}</p>
-      <button class="btn btn-primary w-100">Add To Cart</button>
+      <button class="btn btn-primary w-100" (click)="addToCart(p)">Add To Cart</button>
     </div>
   </div>
 </div>
