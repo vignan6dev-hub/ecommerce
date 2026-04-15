@@ -1,0 +1,16 @@
+<div class="container">
+<div class="row">
+   <div class="col-md-3" *ngFor="let p of products[0]">
+    <div class="card mt-2">
+      <div class="card-body">
+        <div class="produc">
+            <img src="{{p.image}}" />
+            <p class="text-center pt-5">&#8377; {{p.price}}</p>
+            <!-- <p>{{p.title}}</p> -->
+             <button class="btn btn-primary w-100">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
