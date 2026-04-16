@@ -1,0 +1,97 @@
+<div class="container main">
+  <div class="row order">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="text-center">Checkout</h4>
+          <form [formGroup]="order" (ngSubmit)="submit()">
+            <div class="mb-3">
+              <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name"/>
+              <div *ngIf=" order.get('fullName')?.touched && order.get('fullName')?.invalid">
+                <p class="text-danger" *ngIf="order.get('fullName')?.errors?.['required']">Full Name is required</p>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" formControlName="mobile" placeholder="Mobile"/>
+              <div *ngIf="order.get('mobile')?.touched && order.get('mobile')?.invalid">
+                <p class="text-danger" *ngIf="order.get('mobile')?.errors?.['required']">Mobile is required</p>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" formControlName="address" placeholder="Address"/>
+              <div *ngIf="order.get('address')?.touched && order.get('address')?.invalid">
+                <p class="text-danger" *ngIf="order.get('address')?.errors?.['required']">Address is required</p>
+              </div>
+            </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="city"
+                  placeholder="City"
+                />
+                <div
+                  *ngIf="
+                    order.get('city')?.touched && order.get('city')?.invalid
+                  "
+                >
+                  <p
+                    class="text-danger"
+                    *ngIf="order.get('city')?.errors?.['required']"
+                  >
+                    City is required
+                  </p>
+                </div>
+              </div>
+              <div class="mb-3">
+                <!-- <label for="name" class="form-label">State</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="state"
+                  placeholder="State"
+                />
+                <div
+                  *ngIf="
+                    order.get('state')?.touched && order.get('state')?.invalid
+                  "
+                >
+                  <p
+                    class="text-danger"
+                    *ngIf="order.get('state')?.errors?.['required']"
+                  >
+                    State is required
+                  </p>
+                </div>
+              </div>
+              <div class="mb-3">
+                <!-- <label for="name" class="form-label">Pincode</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="pincode"
+                  placeholder="Pincode"
+                />
+                <div
+                  *ngIf="
+                    order.get('pincode')?.touched &&
+                    order.get('pincode')?.invalid
+                  "
+                >
+                  <p
+                    class="text-danger"
+                    *ngIf="order.get('pincode')?.errors?.['required']"
+                  >
+                    Pincode is required
+                  </p>
+                </div>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-primary w-100">Submit</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
