@@ -5,6 +5,7 @@ import { ProductsListComponent } from './features/products/products-list/product
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { CartComponent } from './features/cart/cart/cart.component';
+import { OrderComponent } from './features/orders/order/order.component';
 
 // export const routes: Routes = [
 //    {path:"",redirectTo:"register",pathMatch:"full"},
@@ -21,7 +22,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'register', pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'cart',component:CartComponent}
+      { path: 'cart',component:CartComponent},
+      { path: 'order',component:OrderComponent}
     ]
   },
   {
