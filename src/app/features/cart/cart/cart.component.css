@@ -12,3 +12,5 @@ height: 150px;
 .price{display: flex;flex-direction:column;align-items: center;justify-content: center;height: 100vh;width:100%;}
 
 .d{display: flex;flex-direction: row;align-items: center;justify-content: center;}
+
+.checkout{display: flex;flex-direction: row;justify-content: flex-end;margin-top: 10px;}

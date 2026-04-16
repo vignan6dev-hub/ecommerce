@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../../core/models/cart-item';
+import { RouterLink, RouterModule } from "@angular/router";
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink,RouterModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -54,14 +55,16 @@ export class CartComponent implements OnInit {
   }
 
   public decrease(item: any) {
-    this.cartItems = this.cartItems.map((dt: any) => {
-      if (item.id === dt.id) {
-        if (dt.quantity > 1) {
-          dt.quantity -= 1;
-          dt.totalPrice = dt.quantity * dt.unitPrice;
-        }
-      }
-      return dt;
-    });
+    this.cartItems = this.cartItems.filter((dt: any) => {
+  if (dt.id === item.id) {
+    if (dt.quantity > 1) {
+      dt.quantity -= 1;
+      dt.totalPrice = dt.quantity * dt.unitPrice;
+      return true;
+    }
+    return false;
+  }
+  return true;
+});
   }
 }
