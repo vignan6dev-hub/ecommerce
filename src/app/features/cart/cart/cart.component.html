@@ -1,35 +1,38 @@
-<div class="container ">
-    <div *ngFor="let i of cartItems">
-        <div class="card mt-10">
-            <!-- <div class="col-md-3"> -->
-            <div class="row">
-                <div class="card-body crt">
-                        <div class="col-md-3">
-                            <img src="{{i.image}}" />
-                        </div>
-                        <div class="col-md-2">
-                            <p class="text-danger">Title</p>
-                            <p class="pric">{{i.title}}</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p class="text-danger">Price</p>
-                            <p class="pric">{{i.totalPrice}}</p>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="text-danger">Quantity</p>
-                            <div class="d">
-                                <span (click)="decrease(i)"> <i class="bi bi-file-minus-fill"></i></span>
-                                <span class="qua">{{i.quantity}}</span>
-                                <span (click)="increase(i)"><i class="bi bi-file-plus-fill"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-warning">Buy</button>
-                        </div>
-                    </div>
-                </div>
+<div class="container">
+  <div *ngFor="let i of cartItems">
+    <div class="card mt-10">
+      <!-- <div class="col-md-3"> -->
+      <div class="row">
+        <div class="card-body crt">
+          <div class="col-md-3">
+            <img src="{{ i.image }}" />
+          </div>
+          <div class="col-md-2">
+            <p class="text-danger">Title</p>
+            <p class="pric">{{ i.title }}</p>
+          </div>
+          <div class="col-md-2">
+            <p class="text-danger">Price</p>
+            <p class="pric">{{ i.totalPrice }}</p>
+          </div>
+          <div class="col-md-3">
+            <p class="text-danger">Quantity</p>
+            <div class="d">
+              <span (click)="decrease(i)">
+                <i class="bi bi-file-minus-fill"></i
+              ></span>
+              <span class="qua">{{ i.quantity }}</span>
+              <span (click)="increase(i)"
+                ><i class="bi bi-file-plus-fill"></i>
+              </span>
             </div>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-warning">Buy</button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</div>
 <!-- </div> -->
