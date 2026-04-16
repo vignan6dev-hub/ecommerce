@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ProductsService } from '../../../core/services/products.service';
 import { ProductCardComponent } from '../../../shared/product-card/product-card.component';
+import { Product } from '../../../core/models/product';
 
 @Component({
   selector: 'app-products-list',
@@ -12,11 +13,11 @@ import { ProductCardComponent } from '../../../shared/product-card/product-card.
 })
 export class ProductsListComponent implements OnInit {
 
- products:any[] = [];
+ products:Product[] = [];
  serv = inject(ProductsService);
 
  ngOnInit(){
-  this.serv.getProducts().subscribe((res:any)=>{
+  this.serv.getProducts().subscribe((res:Product[])=>{
     // console.log(res,"res of products list");
     this.products = res;   
   })

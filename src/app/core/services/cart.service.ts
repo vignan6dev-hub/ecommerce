@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { CartItem } from '../models/cart-item';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class CartService {
     return this.cart;
   }
 
-  addToCart(item: any) {
+  addToCart(item:CartItem) {
   const current = this.cart.getValue();
   this.cart.next([...current, item]);
 }
