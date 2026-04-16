@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 import { CommonModule } from '@angular/common';
+import { CartItem } from '../../../core/models/cart-item';
 
 @Component({
   selector: 'app-cart',
@@ -11,20 +12,17 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent implements OnInit {
   public cart = inject(CartService);
-  public cartItems: any[] = [];
+  public cartItems: CartItem[] = [];
 
   ngOnInit(): void {
     this.cart.getCart().subscribe((res: any[]) => {
       const grouped = new Map();
 
-      res.forEach((item: any) => {
-        const key = `${item.name}_${item.title}_${item.price}`;
-
+      res.forEach((item: CartItem) => {
+        const key = `${item.id}`;
         if (grouped.has(key)) {
           const existing = grouped.get(key);
           existing.quantity += 1;
-
-          // recompute total price safely
           existing.totalPrice = existing.quantity * existing.unitPrice;
         } else {
           grouped.set(key, {
