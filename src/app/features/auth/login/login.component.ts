@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit{
  login!:FormGroup;
 
  public auth = inject(AuthService);
+ public router = inject(Router);
 
  constructor(public fb:FormBuilder){}
 
@@ -27,7 +29,14 @@ ngOnInit(): void {
 
 public submit(){
   console.log(this.login.value,"form values");
-  this.auth.login(this.login.value.email,this.login.value.password).catch((err)=>{
+  // this.auth.login(this.login.value.email,this.login.value.password).catch((err)=>{
+  //   console.log(err,"error")
+  // })
+
+  this.auth.login(this.login.value.email,this.login.value.password).then(d=>{
+    console.log(d,"user data");
+    this.router.navigate(['/products'])
+  }).catch((err)=>{
     console.log(err,"error")
   })
 }
