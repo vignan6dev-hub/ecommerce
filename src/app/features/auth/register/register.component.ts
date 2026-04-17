@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,8 @@ register!:FormGroup;
 
 constructor(private fb:FormBuilder){}
 
+public auth = inject(AuthService)
+
 ngOnInit(){
   this.register = this.fb.group({
     name:['',[Validators.required]],
@@ -23,6 +26,9 @@ ngOnInit(){
 }
 
 public submit(){
-  console.log(this.register.value,"register form values")
+  console.log(this.register.value,"register form values",this.register.value.name);
+  this.auth.register(this.register.value.email,this.register.value.password).catch((err)=>{
+    console.log(err,"error")
+  })
 }
 }

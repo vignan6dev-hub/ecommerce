@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,],
   templateUrl: './order.component.html',
   styleUrl: './order.component.css'
 })
