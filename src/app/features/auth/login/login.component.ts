@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,8 @@ export class LoginComponent implements OnInit{
 
  login!:FormGroup;
 
+ public auth = inject(AuthService);
+
  constructor(public fb:FormBuilder){}
 
 ngOnInit(): void {
@@ -23,7 +26,10 @@ ngOnInit(): void {
 }
 
 public submit(){
-  console.log(this.login.value,"form values")
+  console.log(this.login.value,"form values");
+  this.auth.login(this.login.value.email,this.login.value.password).catch((err)=>{
+    console.log(err,"error")
+  })
 }
 
 }
