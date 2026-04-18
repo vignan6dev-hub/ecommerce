@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { ProductsService } from '../../../core/services/products.service';
 import { ProductCardComponent } from '../../../shared/product-card/product-card.component';
 import { Product } from '../../../core/models/product';
@@ -9,7 +9,8 @@ import { Product } from '../../../core/models/product';
   standalone: true,
   imports: [CommonModule,ProductCardComponent],
   templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.css'
+  styleUrl: './products-list.component.css',
+  // changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProductsListComponent implements OnInit {
 
