@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3" *ngFor="let pp of products">
+    <div class="col-md-3" *ngFor="let pp of products; trackBy: trackByProductId">
       <app-product-card [p]="pp"></app-product-card>
     </div>
   </div>

@@ -1,0 +1,18 @@
+<div class="order-history" *ngIf="order">
+    <h2>Order History</h2>
+    <div class="order-details">
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Full Name:</strong> {{order.fullName}}</p>
+                <p><strong>Mobile:</strong> {{order.mobile}}</p>
+                <p><strong>Address:</strong> {{order.address}}</p>
+                <p><strong>City:</strong> {{order.city}}</p>
+                <p><strong>State:</strong> {{order.state}}</p>
+                <p><strong>Pincode:</strong> {{order.pincode}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!order">
+    <p>No orders found</p>
+</div>
