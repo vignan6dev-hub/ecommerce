@@ -9,6 +9,7 @@ import { provideToastr } from 'ngx-toastr';
 import { routes } from './app.routes';
 import { environment } from "../environments/environment";
 import { errorInterceptor } from './core/interceptors/error.interceptor';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   
@@ -20,7 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideToastr(),
     provideHttpClient(
-      withInterceptors([errorInterceptor])
+      withInterceptors([errorInterceptor,authInterceptor])
     )
   ]
 };

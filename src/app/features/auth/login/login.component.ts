@@ -34,8 +34,9 @@ public submit(){
   // })
 
   this.auth.login(this.login.value.email,this.login.value.password).then(d=>{
-    console.log(d,"user data");
-    this.router.navigate(['/products'])
+    const isAdmin = this.login.value.email === 'admin@example.com';
+    
+    this.router.navigate([isAdmin ? '/admin' : '/app/products']);
   }).catch((err)=>{
     console.log(err,"error")
   })

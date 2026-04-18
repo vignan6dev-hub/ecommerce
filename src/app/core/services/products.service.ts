@@ -10,9 +10,6 @@ export class ProductsService {
 
   constructor(public http:HttpClient) { }
 
-  // public getProducts():Observable(Product[]){
-  //   return this.http.get("https://fakestoreapi.com/products");
-  // }
 
   public getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>("https://fakestoreapi.com/products").pipe(
@@ -23,5 +20,20 @@ export class ProductsService {
       })
     );
   }
+
+  // Add product
+addProduct(product: Product): Observable<Product> {
+  return this.http.post<Product>("https://fakestoreapi.com/products", product);
+}
+
+// Edit product
+updateProduct(id: number, product: Product): Observable<Product> {
+  return this.http.put<Product>(`https://fakestoreapi.com/products/${id}`, product);
+}
+
+// Delete product
+deleteProduct(id: number): Observable<any> {
+  return this.http.delete(`https://fakestoreapi.com/products/${id}`);
+}
 
 }

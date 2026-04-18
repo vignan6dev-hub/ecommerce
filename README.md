@@ -25,3 +25,51 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Ecommerce App
+
+An Angular 18 ecommerce application with Firebase authentication.
+
+## Features
+
+### User
+- Register / Login with Firebase Auth
+- Browse Products
+- Product Details
+- Add to Cart
+- Place Order
+- Order History
+
+### Admin
+- Product Management (Add, Edit, Delete)
+- Order Management
+- Admin Dashboard
+
+## Tech Stack
+
+- Angular 18
+- Firebase Authentication
+- ngx-toastr
+- FakeStore API
+- Bootstrap
+
+## How to Run
+
+1. Clone the repo
+   git clone https://github.com/vignan6dev-hub/ecommerce.git
+
+2. Install dependencies
+   npm install
+
+3. Add Firebase config in src/environments/environment.ts
+
+4. Run the app
+   ng serve
+
+## Project Structure
+
+- core/ — services, guards, interceptors
+- features/ — auth, products, cart, orders, admin
+- shared/ — reusable components
+- layout/ — header, main layout

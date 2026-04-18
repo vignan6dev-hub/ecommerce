@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -13,7 +14,7 @@ export class OrderComponent implements OnInit {
 
   order!:FormGroup;
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private router:Router){}
 
   ngOnInit(): void {
     this.order = this.fb.group({
@@ -27,6 +28,8 @@ export class OrderComponent implements OnInit {
   }
   
   public submit(){
-
+     localStorage.setItem("order",JSON.stringify(this.order.value));
+     this.router.navigate(['/app/order-history']);
   }
+  
 }

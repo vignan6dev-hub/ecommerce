@@ -1,0 +1,59 @@
+<!-- <table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+
+<div class="container mt-4">
+    <button class="btn btn-primary mb-3" (click)="openAddForm()">Add Product</button>
+
+    <!-- Form -->
+    <div *ngIf="showForm" class="card p-3 mb-3">
+        <h4>{{isEditing ? 'Edit Product' : 'Add Product'}}</h4>
+        <input class="form-control mb-2" [(ngModel)]="selectedProduct.title" placeholder="Title">
+        <input class="form-control mb-2" [(ngModel)]="selectedProduct.price" placeholder="Price" type="number">
+        <input class="form-control mb-2" [(ngModel)]="selectedProduct.category" placeholder="Category">
+        <button class="btn btn-success me-2" (click)="saveProduct()">Save</button>
+        <button class="btn btn-secondary" (click)="showForm = false">Cancel</button>
+    </div>
+
+    <!-- Products Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.category}}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2" (click)="openEditForm(product)">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
