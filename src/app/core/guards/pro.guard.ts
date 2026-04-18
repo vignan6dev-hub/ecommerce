@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 export const proGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
@@ -9,7 +9,9 @@ export const proGuard: CanActivateFn = (route, state) => {
 
   // We subscribe to the authState observable
   return authService.isLoggedIn().pipe(
+    take(1),
     map(user => {
+      console.log('Guard triggered');
       if (user) {
         // User is logged in, allow access to the route
         return true;
