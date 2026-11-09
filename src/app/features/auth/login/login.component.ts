@@ -33,13 +33,15 @@ public submit(){
   //   console.log(err,"error")
   // })
 
-  this.auth.login(this.login.value.email,this.login.value.password).then(d=>{
-    const isAdmin = this.login.value.email === 'admin@example.com';
+   this.router.navigate(['/app/products']);
+
+  // this.auth.login(this.login.value.email,this.login.value.password).then(d=>{
+  //   const isAdmin = this.login.value.email === 'admin@example.com';
     
-    this.router.navigate([isAdmin ? '/admin' : '/app/products']);
-  }).catch((err)=>{
-    console.log(err,"error")
-  })
+  //   this.router.navigate([isAdmin ? '/admin' : '/app/products']);
+  // }).catch((err)=>{
+  //   console.log(err,"error")
+  // })
 }
 
 }

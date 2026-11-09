@@ -17,7 +17,7 @@ export const routes: Routes = [
   {
   path: 'admin',
   component: MainLayoutComponent,
-  canActivate: [roleGuard],
+  // canActivate: [roleGuard],
   children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: AdminDashboardComponent },
@@ -40,10 +40,10 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       // Products list is protected
-      { path: 'cart', component: CartComponent, canActivate: [proGuard] },
-      { path: 'order', component: OrderComponent, canActivate: [proGuard] },
-      { path: 'order-history', component: OrderHistoryComponent, canActivate: [proGuard] },
-      { path: 'products', component: ProductsListComponent, canActivate: [proGuard] }
+      { path: 'cart', component: CartComponent,  },
+      { path: 'order', component: OrderComponent,  },
+      { path: 'order-history', component: OrderHistoryComponent,  },
+      { path: 'products', component: ProductsListComponent,  }
     ]
   }
 ];
